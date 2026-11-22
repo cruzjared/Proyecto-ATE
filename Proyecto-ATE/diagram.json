@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "author": "Jared Cruz Ibarra",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": 16.2,
+      "left": -6.8,
+      "attrs": { "color": "#eeefed" }
+    },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -148.76, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": 42.2, "attrs": { "color": "white" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 129.6,
+      "left": 28.25,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -24.8, "left": 69.42, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -48.3,
+      "left": 119.3,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 46.7, "left": 345.4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 135.4,
+      "left": 138.4,
+      "rotate": 90,
+      "attrs": { "color": "red", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "bb1:bn.1", "black", [ "v96", "h172.95", "v-46.7" ] ],
+    [ "esp:5V", "bb1:bp.2", "red", [ "v28.8", "h180.95" ] ],
+    [ "bb1:5b.j", "bb1:bn.4", "green", [ "v0" ] ],
+    [ "esp:23", "bb1:6t.c", "blue", [ "h0" ] ],
+    [ "bb1:10t.b", "bb1:bp.8", "red", [ "v0" ] ],
+    [ "bb1:12t.b", "bb1:bn.10", "black", [ "v0" ] ],
+    [ "bb1:11t.b", "esp:19", "blue", [ "v-115.2", "h-163.2" ] ],
+    [ "bb1:21t.b", "bb1:bn.17", "black", [ "v0" ] ],
+    [ "bb1:19t.b", "esp:35", "blue", [ "h-19.2", "v-134.4", "h-316.95" ] ],
+    [ "pot1:GND", "bb1:bn.25", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "blue", [ "v192", "h-576.4", "v-230.4" ] ],
+    [ "bb1:14b.j", "bb1:bn.11", "black", [ "v0" ] ],
+    [ "esp:3V3", "bb1:tp.21", "red", [ "v-144", "h401.75" ] ],
+    [ "bb1:22t.b", "bb1:tp.22", "red", [ "h46.4" ] ],
+    [ "pot1:VCC", "bb1:tp.25", "red", [ "v0" ] ],
+    [ "esp:18", "btn1:1.l", "blue", [ "h0" ] ],
+    [ "led1:A", "bb1:6t.d", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:5t.d", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:5t.e", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:5b.i", "", [ "$bb" ] ],
+    [ "btn1:1.l", "bb1:16b.f", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:14b.f", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:16b.i", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:14b.i", "", [ "$bb" ] ],
+    [ "pir1:VCC", "bb1:10t.a", "", [ "$bb" ] ],
+    [ "pir1:OUT", "bb1:11t.a", "", [ "$bb" ] ],
+    [ "pir1:GND", "bb1:12t.a", "", [ "$bb" ] ],
+    [ "ldr1:VCC", "bb1:22t.a", "", [ "$bb" ] ],
+    [ "ldr1:GND", "bb1:21t.a", "", [ "$bb" ] ],
+    [ "ldr1:DO", "bb1:20t.a", "", [ "$bb" ] ],
+    [ "ldr1:AO", "bb1:19t.a", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
